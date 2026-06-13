@@ -1,0 +1,15 @@
+services:
+  base-consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: base_consumer
+    env_file:
+      - .env
+    networks:
+      - shared-network  
+
+networks:
+  shared-network:
+    external: true
+    name: global-infra-net
